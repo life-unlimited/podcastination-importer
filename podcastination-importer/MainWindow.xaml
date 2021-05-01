@@ -121,9 +121,9 @@
 
         <Button x:Name="Btn_start" 
                 Content="Start Process" 
-                HorizontalAlignment="Center"  VerticalAlignment="Top"
+                HorizontalAlignment="Center" VerticalAlignment="Top"
                 Height="32" Width="116"
-                Margin="0,330,0,0" />
+                Margin="0,330,0,0" Click="Btn_start_Click" />
 
     </Grid>
 </Window>
