@@ -5,11 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:podcastination_importer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="300">
     <Grid>
-        <Border x:Name="border" BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Center" Height="434" VerticalAlignment="Center" Width="800">
-            <Label Content="Importer" HorizontalAlignment="Left" Height="28" Margin="9,9,0,0" VerticalAlignment="Top" Width="76"/>
-        </Border>
+        <Label Content="PodcastKey" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="96"/>
+        <Label Content="SeasonKey" HorizontalAlignment="Left" Height="25" Margin="10,40,0,0" VerticalAlignment="Top" Width="96"/>
+        <Label Content="Title" HorizontalAlignment="Left" Height="25" Margin="10,70,0,0" VerticalAlignment="Top" Width="96"/>
+        <Label Content="Subtitle" HorizontalAlignment="Left" Height="25" Margin="10,100,0,0" VerticalAlignment="Top" Width="96"/>
+        <Label Content="Date" HorizontalAlignment="Left" Height="25" Margin="10,130,0,0" VerticalAlignment="Top" Width="96"/>
+        <Label Content="Author" HorizontalAlignment="Left" Height="25" Margin="10,160,0,0" VerticalAlignment="Top" Width="96"/>
+        <Label Content="Description" HorizontalAlignment="Left" Height="25" Margin="10,190,0,0" VerticalAlignment="Top" Width="96"/>
+        <Label Content="MP3FileName" HorizontalAlignment="Left" Height="25" Margin="10,220,0,0" VerticalAlignment="Top" Width="96"/>
+        <Label Content="ImageFileName" HorizontalAlignment="Left" Height="25" Margin="10,250,0,0" VerticalAlignment="Top" Width="96"/>
+        <Label Content="YouTubeURL" HorizontalAlignment="Left" Height="25" Margin="10,280,0,0" VerticalAlignment="Top" Width="96"/>
+
+        <TextBlock HorizontalAlignment="Left" Height="25" Margin="111,10,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <TextBlock HorizontalAlignment="Left" Height="25" Margin="111,40,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <TextBlock HorizontalAlignment="Left" Height="25" Margin="111,70,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <TextBlock HorizontalAlignment="Left" Height="25" Margin="111,100,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <TextBlock HorizontalAlignment="Left" Height="25" Margin="111,130,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <TextBlock HorizontalAlignment="Left" Height="25" Margin="111,160,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <TextBlock HorizontalAlignment="Left" Height="25" Margin="111,190,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <TextBlock HorizontalAlignment="Left" Height="25" Margin="111,220,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <TextBlock HorizontalAlignment="Left" Height="25" Margin="111,250,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <TextBlock HorizontalAlignment="Left" Height="25" Margin="111,280,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
 
     </Grid>
 </Window>
