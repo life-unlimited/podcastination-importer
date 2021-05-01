@@ -18,16 +18,16 @@
         <Label Content="ImageFileName" HorizontalAlignment="Left" Height="25" Margin="10,250,0,0" VerticalAlignment="Top" Width="96"/>
         <Label Content="YouTubeURL" HorizontalAlignment="Left" Height="25" Margin="10,280,0,0" VerticalAlignment="Top" Width="96"/>
 
-        <TextBlock HorizontalAlignment="Left" Height="25" Margin="111,10,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
-        <TextBlock HorizontalAlignment="Left" Height="25" Margin="111,40,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
-        <TextBlock HorizontalAlignment="Left" Height="25" Margin="111,70,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
-        <TextBlock HorizontalAlignment="Left" Height="25" Margin="111,100,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
-        <TextBlock HorizontalAlignment="Left" Height="25" Margin="111,130,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
-        <TextBlock HorizontalAlignment="Left" Height="25" Margin="111,160,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
-        <TextBlock HorizontalAlignment="Left" Height="25" Margin="111,190,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
-        <TextBlock HorizontalAlignment="Left" Height="25" Margin="111,220,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
-        <TextBlock HorizontalAlignment="Left" Height="25" Margin="111,250,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
-        <TextBlock HorizontalAlignment="Left" Height="25" Margin="111,280,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="111,10,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="111,40,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="111,70,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="111,100,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="111,130,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="111,160,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="111,190,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="111,220,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="111,250,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="111,280,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
 
     </Grid>
 </Window>
