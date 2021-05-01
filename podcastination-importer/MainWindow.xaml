@@ -7,29 +7,123 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="320">
     <Grid>
-        <Label Content="PodcastKey" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="96"/>
-        <Label Content="SeasonKey" HorizontalAlignment="Left" Height="25" Margin="10,40,0,0" VerticalAlignment="Top" Width="96"/>
-        <Label Content="Title" HorizontalAlignment="Left" Height="25" Margin="10,70,0,0" VerticalAlignment="Top" Width="96"/>
-        <Label Content="Subtitle" HorizontalAlignment="Left" Height="25" Margin="10,100,0,0" VerticalAlignment="Top" Width="96"/>
-        <Label Content="Date" HorizontalAlignment="Left" Height="25" Margin="10,130,0,0" VerticalAlignment="Top" Width="96"/>
-        <Label Content="Author" HorizontalAlignment="Left" Height="25" Margin="10,160,0,0" VerticalAlignment="Top" Width="96"/>
-        <Label Content="Description" HorizontalAlignment="Left" Height="25" Margin="10,190,0,0" VerticalAlignment="Top" Width="96"/>
-        <Label Content="MP3FileName" HorizontalAlignment="Left" Height="25" Margin="10,220,0,0" VerticalAlignment="Top" Width="96"/>
-        <Label Content="ImageFileName" HorizontalAlignment="Left" Height="25" Margin="10,250,0,0" VerticalAlignment="Top" Width="96"/>
-        <Label Content="YouTubeURL" HorizontalAlignment="Left" Height="25" Margin="10,280,0,0" VerticalAlignment="Top" Width="96"/>
+        <Label Content="PodcastKey" 
+               HorizontalAlignment="Left" VerticalAlignment="Top" 
+               Height="25" Width="96"
+               Margin="10,10,0,0" />
 
-        <TextBox x:Name="TB_podcatsKey" HorizontalAlignment="Left" Height="25" Margin="111,10,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
-        <TextBox x:Name="TB_seasonKey" HorizontalAlignment="Left" Height="25" Margin="111,40,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
-        <TextBox x:Name="TB_title" HorizontalAlignment="Left" Height="25" Margin="111,70,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
-        <TextBox x:Name="TB_subtitle" HorizontalAlignment="Left" Height="25" Margin="111,100,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
-        <TextBox x:Name="TB_date" HorizontalAlignment="Left" Height="25" Margin="111,130,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
-        <TextBox x:Name="TB_author" HorizontalAlignment="Left" Height="25" Margin="111,160,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
-        <TextBox x:Name="TB_description" HorizontalAlignment="Left" Height="25" Margin="111,190,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
-        <TextBox x:Name="TB_mp3FileName" HorizontalAlignment="Left" Height="25" Margin="111,220,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
-        <TextBox x:Name="TB_imageFileName" HorizontalAlignment="Left" Height="25" Margin="111,250,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
-        <TextBox x:Name="TB_youTubeURL" HorizontalAlignment="Left" Height="25" Margin="111,280,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <Label Content="SeasonKey" 
+               HorizontalAlignment="Left" VerticalAlignment="Top"
+               Height="25" Width="96"
+               Margin="10,40,0,0" />
+        
+        <Label Content="Title"
+               HorizontalAlignment="Left" VerticalAlignment="Top"
+               Height="25" Width="96"
+               Margin="10,70,0,0" />
+        
+        <Label Content="Subtitle" 
+               HorizontalAlignment="Left" VerticalAlignment="Top"
+               Height="25" Width="96"
+               Margin="10,100,0,0" />
+        
+        <Label Content="Date" 
+               HorizontalAlignment="Left" VerticalAlignment="Top"
+               Height="25" Width="96"
+               Margin="10,130,0,0" />
+        
+        <Label Content="Author" 
+               HorizontalAlignment="Left" VerticalAlignment="Top"
+               Height="25" Width="96"
+               Margin="10,160,0,0" />
+        
+        <Label Content="Description" 
+               HorizontalAlignment="Left" VerticalAlignment="Top"
+               Height="25" Width="96"
+               Margin="10,190,0,0" />
+        
+        <Label Content="MP3FileName"
+               HorizontalAlignment="Left" VerticalAlignment="Top"
+               Height="25" Width="96"
+               Margin="10,220,0,0" />
+        
+        <Label Content="ImageFileName" 
+               HorizontalAlignment="Left" VerticalAlignment="Top"
+               Height="25" Width="96"
+               Margin="10,250,0,0" />
+        
+        <Label Content="YouTubeURL" 
+               HorizontalAlignment="Left" VerticalAlignment="Top"
+               Height="25" Width="96"
+               Margin="10,280,0,0" />
+        
 
-        <Button x:Name="Btn_start" Content="Start Process" HorizontalAlignment="Center" Height="32" Margin="0,330,0,0" VerticalAlignment="Top" Width="116"/>
+        <TextBox x:Name="TB_podcatsKey" 
+                 HorizontalAlignment="Left" VerticalAlignment="Top"
+                 Height="25" Width="179"
+                 Margin="111,10,0,0" 
+                 Text="TextBlock" TextWrapping="Wrap" />
+        
+        <TextBox x:Name="TB_seasonKey" 
+                 HorizontalAlignment="Left" VerticalAlignment="Top"
+                 Height="25" Width="179"
+                 Margin="111,40,0,0" 
+                 Text="TextBlock" TextWrapping="Wrap" />
+        
+        <TextBox x:Name="TB_title" 
+                 HorizontalAlignment="Left" VerticalAlignment="Top"
+                 Height="25" Width="179"
+                 Margin="111,70,0,0" 
+                 Text="TextBlock" TextWrapping="Wrap" />
+        
+        <TextBox x:Name="TB_subtitle" 
+                 HorizontalAlignment="Left" VerticalAlignment="Top"
+                 Height="25" Width="179"
+                 Margin="111,100,0,0" 
+                 Text="TextBlock" TextWrapping="Wrap" />
+        
+        <TextBox x:Name="TB_date" 
+                 HorizontalAlignment="Left" VerticalAlignment="Top"
+                 Height="25"  Width="179"
+                 Margin="111,130,0,0" 
+                 Text="TextBlock" TextWrapping="Wrap" />
+        
+        <TextBox x:Name="TB_author" 
+                 HorizontalAlignment="Left" VerticalAlignment="Top"
+                 Height="25" Width="179"
+                 Margin="111,160,0,0" 
+                 Text="TextBlock" TextWrapping="Wrap" />
+        
+        <TextBox x:Name="TB_description" 
+                 HorizontalAlignment="Left" VerticalAlignment="Top"
+                 Height="25" Width="179"
+                 Margin="111,190,0,0" 
+                 Text="TextBlock" TextWrapping="Wrap" />
+        
+        <TextBox x:Name="TB_mp3FileName" 
+                 HorizontalAlignment="Left" VerticalAlignment="Top"
+                 Height="25" Width="179"
+                 Margin="111,220,0,0" 
+                 Text="TextBlock" TextWrapping="Wrap" />
+        
+        <TextBox x:Name="TB_imageFileName" 
+                 HorizontalAlignment="Left" VerticalAlignment="Top"
+                 Height="25" Width="179"
+                 Margin="111,250,0,0" 
+                 Text="TextBlock" TextWrapping="Wrap" />
+        
+        <TextBox x:Name="TB_youTubeURL" 
+                 HorizontalAlignment="Left" VerticalAlignment="Top"
+                 Height="25" Width="179"
+                 Margin="111,280,0,0" 
+                 Text="TextBlock" TextWrapping="Wrap" />
+        
+
+        <Button x:Name="Btn_start" 
+                Content="Start Process" 
+                HorizontalAlignment="Center"  VerticalAlignment="Top"
+                Height="32" Width="116"
+                Margin="0,330,0,0" />
 
     </Grid>
 </Window>
