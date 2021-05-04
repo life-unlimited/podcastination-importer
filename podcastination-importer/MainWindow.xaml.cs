@@ -30,26 +30,42 @@ namespace podcastination_importer
 
         }
 
+        public class ImportTaskDetails
+        {
+            public string PodcastKey { get; set; }
+            public string SeasonKey { get; set; }
+            public string Title { get; set; }
+            public string Subtitle { get; set; }
+            public System.DateTime Date { get; set; }
+            public string Author { get; set; }
+            public string Description { get; set; }
+            public string MP3FileName { get; set; }
+            public string ImageFileName { get; set; }
+            public string YouTubeURL { get; set; }
+
+
+        }
+
         private void Btn_start_Click(object sender, RoutedEventArgs e)
         {
             // Create Object
-            object ImportTaskDetails = new
+            ImportTaskDetails myobj = new ImportTaskDetails()
             {
                 PodcastKey = TB_podcatsKey.Text,
                 SeasonKey = TB_seasonKey.Text,
                 Title = TB_title.Text,
-                Subtitle = TB_subtitle,
+                Subtitle = TB_subtitle.Text,
                 Date = DateTime.Now,
-                Author = TB_author,
-                Description = TB_description,
-                MP3FileName = TB_mp3FileName,
-                ImageFileName = TB_imageFileName,
-                YouTubeURL = TB_youTubeURL
+                Author = TB_author.Text,
+                Description = TB_description.Text,
+                MP3FileName = TB_mp3FileName.Text,
+                ImageFileName = TB_imageFileName.Text,
+                YouTubeURL = TB_youTubeURL.Text
             };
 
             // Transform ImportTaskDetails to Json Object
-            var jsonImportTaskDetails = JsonConvert.SerializeObject(ImportTaskDetails);
-            
+            var jsonImportTaskDetails = JsonConvert.SerializeObject(myobj);
+
             Console.WriteLine(jsonImportTaskDetails);
         }
     }
