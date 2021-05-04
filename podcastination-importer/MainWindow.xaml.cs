@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using System.IO;
 
 namespace podcastination_importer
 {
@@ -32,41 +33,48 @@ namespace podcastination_importer
 
         public class ImportTaskDetails
         {
-            public string PodcastKey { get; set; }
-            public string SeasonKey { get; set; }
-            public string Title { get; set; }
-            public string Subtitle { get; set; }
-            public System.DateTime Date { get; set; }
-            public string Author { get; set; }
-            public string Description { get; set; }
-            public string MP3FileName { get; set; }
-            public string ImageFileName { get; set; }
-            public string YouTubeURL { get; set; }
-
-
+            public string podcast_key { get; set; }
+            public string season_key { get; set; }
+            public string title { get; set; }
+            public string subtitle { get; set; }
+            public System.DateTime date { get; set; }
+            public string author { get; set; }
+            public string description { get; set; }
+            public string mp3_file_name { get; set; }
+            public string image_file_name { get; set; }
+            public string youtube_url { get; set; }
         }
 
         private void Btn_start_Click(object sender, RoutedEventArgs e)
         {
             // Create Object
-            ImportTaskDetails myobj = new ImportTaskDetails()
+            ImportTaskDetails importTaskDetails = new ImportTaskDetails()
             {
-                PodcastKey = TB_podcatsKey.Text,
-                SeasonKey = TB_seasonKey.Text,
-                Title = TB_title.Text,
-                Subtitle = TB_subtitle.Text,
-                Date = DateTime.Now,
-                Author = TB_author.Text,
-                Description = TB_description.Text,
-                MP3FileName = TB_mp3FileName.Text,
-                ImageFileName = TB_imageFileName.Text,
-                YouTubeURL = TB_youTubeURL.Text
+                podcast_key = TB_podcatsKey.Text,
+                season_key = TB_seasonKey.Text,
+                title = TB_title.Text,
+                subtitle = TB_subtitle.Text,
+                date = DateTime.Now,
+                author = TB_author.Text,
+                description = TB_description.Text,
+                mp3_file_name = TB_mp3FileName.Text,
+                image_file_name = TB_imageFileName.Text,
+                youtube_url = TB_youTubeURL.Text
             };
 
             // Transform ImportTaskDetails to Json Object
-            var jsonImportTaskDetails = JsonConvert.SerializeObject(myobj);
+            string jsonImportTaskDetails = JsonConvert.SerializeObject(importTaskDetails);
 
-            Console.WriteLine(jsonImportTaskDetails);
+            createJsonFile(jsonImportTaskDetails, "../movie.json");
+        }
+
+        public void createJsonFile(string jsonObject, string path)
+        {
+            using (StreamWriter file = File.CreateText(path))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Serialize(file, jsonObject);
+            }
         }
     }
 }
