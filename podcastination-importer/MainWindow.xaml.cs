@@ -106,5 +106,51 @@ namespace podcastination_importer
                 MessageBox.Show("Something went wrong, while getting the file. Try agian");
             }
         }
+
+        private void Btn_ImageFile_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            openFileDialog1.InitialDirectory = "c:\\";
+            openFileDialog1.Filter = "mp3 files (*.mp3)|*.mp3";
+            openFileDialog1.FilterIndex = 2;
+            openFileDialog1.RestoreDirectory = true;
+
+            try
+            {
+                openFileDialog1.ShowDialog();
+
+                string fileSelected = openFileDialog1.FileName;
+                TB_imageFileLocation.Text = fileSelected;
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Something went wrong, while getting the file. Try agian");
+            }
+        }
+
+        private void Btn_PdfFile_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            openFileDialog1.InitialDirectory = "c:\\";
+            openFileDialog1.Filter = "mp3 files (*.mp3)|*.mp3";
+            openFileDialog1.FilterIndex = 2;
+            openFileDialog1.RestoreDirectory = true;
+
+            try
+            {
+                openFileDialog1.ShowDialog();
+
+                string fileSelected = openFileDialog1.FileName;
+                TB_pdfFileLocation.Text = fileSelected;
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Something went wrong, while getting the file. Try agian");
+            }
+        }
     }
 }
