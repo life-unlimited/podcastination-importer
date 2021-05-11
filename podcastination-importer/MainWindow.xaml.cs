@@ -29,7 +29,6 @@ namespace podcastination_importer
         public MainWindow()
         {
             InitializeComponent();
-
         }
 
         public class ImportTaskDetails
@@ -50,6 +49,10 @@ namespace podcastination_importer
 
         private void Btn_start_Click(object sender, RoutedEventArgs e)
         {
+            string mp3Path = TB_mp3FileLocation.Text;
+            string imagePath = TB_imageFileLocation.Text;
+            string pdfPath = TB_pdfFileLocation.Text;
+            string jsonPath = "../task.json";
             DateTime selectedDate = DateTimePicker.SelectedDate.Value;
 
             // Create Object
@@ -69,12 +72,13 @@ namespace podcastination_importer
                 youtube_url = TB_youTubeURL.Text
             };
 
-            createJsonFile(importTaskDetails, "../task.json");
+            createJsonFile(importTaskDetails, jsonPath);
+            moveFiles(mp3Path, imagePath, pdfPath, jsonPath);
         }
 
         public void createJsonFile(object jsonObject, string path)
         {
-            
+
             using (StreamWriter file = File.CreateText(path))
             {
                 JsonSerializerSettings settings = new JsonSerializerSettings();
@@ -99,9 +103,9 @@ namespace podcastination_importer
             {
                 openFileDialog1.ShowDialog();
 
-                    string fileSelected = openFileDialog1.FileName;
-                    TB_mp3FileLocation.Text = fileSelected;
-                
+                string fileSelected = openFileDialog1.FileName;
+                TB_mp3FileLocation.Text = fileSelected;
+
             }
             catch (Exception)
             {
@@ -114,7 +118,7 @@ namespace podcastination_importer
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
             openFileDialog1.InitialDirectory = "c:\\";
-            openFileDialog1.Filter = "mp3 files (*.mp3)|*.mp3";
+            openFileDialog1.Filter = "png files (*.png)|*.png";
             openFileDialog1.FilterIndex = 2;
             openFileDialog1.RestoreDirectory = true;
 
@@ -137,7 +141,7 @@ namespace podcastination_importer
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
             openFileDialog1.InitialDirectory = "c:\\";
-            openFileDialog1.Filter = "mp3 files (*.mp3)|*.mp3";
+            openFileDialog1.Filter = "pdf files (*.pdf)|*.pdf";
             openFileDialog1.FilterIndex = 2;
             openFileDialog1.RestoreDirectory = true;
 
@@ -153,6 +157,16 @@ namespace podcastination_importer
             {
                 MessageBox.Show("Something went wrong, while getting the file. Try agian");
             }
+        }
+
+        public void moveFiles(string mp3File, string imageFile, string pdfFile, string jsonPath)
+        {
+            // all paths are NOT final!
+            DirectoryInfo di = Directory.CreateDirectory(@"L:\temp\testDir");
+            File.Move(mp3File, di.FullName + @"\predigt.mp3");
+            File.Move(imageFile, di.FullName + @"\thumb.png");
+            File.Move(pdfFile, di.FullName + @"\pdfPredipt.pdf");
+            File.Move(jsonPath, di.FullName + @"\task.json");
         }
     }
 }
