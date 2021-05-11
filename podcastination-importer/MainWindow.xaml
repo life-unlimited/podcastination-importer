@@ -47,22 +47,22 @@
                Height="25" Width="96"
                Margin="10,218,0,0" />
 
-        <Label Content="MP3FileLocation"
+        <Label Content="MP3 File"
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="25" Width="96"
                Margin="10,248,0,0" />
 
-        <Label Content="ImageFileLocation" 
+        <Label Content="Image File" 
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="30" Width="96"
                Margin="10,278,0,0" />
 
-        <Label Content="PDFFileLocation" 
+        <Label Content="PDF File" 
             HorizontalAlignment="Left" VerticalAlignment="Top"
             Height="30" Width="96"
             Margin="10,313,0,0" />
 
-        <Label Content="YouTubeURL" 
+        <Label Content="YouTube URL" 
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="25" Width="96"
                Margin="10,340,0,0" RenderTransformOrigin="0.5,0.101" />
@@ -153,7 +153,7 @@
                 Height="25" Width="25"
                 Margin="295,250,0,0" Click="Btn_Mp3File_Click" />
 
-        <Button x:Name="Btn_ImageFile_Copy"
+        <Button x:Name="Btn_PdfFile"
                 Content="..." 
                 HorizontalAlignment="Left" VerticalAlignment="Top"
                 Height="25" Width="25"
@@ -163,8 +163,5 @@
                     HorizontalAlignment="Left" VerticalAlignment="Top"
                     Height="25" Width="179"
                     Margin="111,130,0,0" />
-
-
-
     </Grid>
 </Window>
