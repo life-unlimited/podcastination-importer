@@ -39,6 +39,7 @@ namespace podcastination_importer
             public string title { get; set; }
             public string subtitle { get; set; }
             public DateTime date { get; set; }
+            public string time { get; set; }
             public string author { get; set; }
             public string description { get; set; }
             public string mp3_file_location { get; set; }
@@ -59,6 +60,7 @@ namespace podcastination_importer
                 title = TB_title.Text,
                 subtitle = TB_subtitle.Text,
                 date = new DateTime(selectedDate.Year, selectedDate.Month, selectedDate.Day),
+                time = TB_Time.Text,
                 author = TB_author.Text,
                 description = TB_description.Text,
                 mp3_file_location = TB_mp3FileLocation.Text,
