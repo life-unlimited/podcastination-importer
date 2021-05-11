@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:podcastination_importer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="320">
+        Title="MainWindow" Height="450" Width="340">
     <Grid>
         <Label Content="PodcastKey" 
                HorizontalAlignment="Left" VerticalAlignment="Top" 
@@ -16,114 +16,155 @@
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="25" Width="96"
                Margin="10,40,0,0" />
-        
+
         <Label Content="Title"
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="25" Width="96"
                Margin="10,70,0,0" />
-        
+
         <Label Content="Subtitle" 
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="25" Width="96"
                Margin="10,100,0,0" />
-        
+
         <Label Content="Date" 
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="25" Width="96"
                Margin="10,130,0,0" />
+
+        <Label Content="Time" 
+            HorizontalAlignment="Left" VerticalAlignment="Top"
+            Height="25" Width="96"
+            Margin="10,160,0,0" />
         
         <Label Content="Author" 
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="25" Width="96"
-               Margin="10,160,0,0" />
-        
+               Margin="10,188,0,0" />
+
         <Label Content="Description" 
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="25" Width="96"
-               Margin="10,190,0,0" />
-        
-        <Label Content="MP3FileName"
+               Margin="10,218,0,0" />
+
+        <Label Content="MP3FileLocation"
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="25" Width="96"
-               Margin="10,220,0,0" />
-        
-        <Label Content="ImageFileName" 
+               Margin="10,248,0,0" />
+
+        <Label Content="ImageFileLocation" 
                HorizontalAlignment="Left" VerticalAlignment="Top"
-               Height="25" Width="96"
-               Margin="10,250,0,0" />
-        
+               Height="30" Width="96"
+               Margin="10,278,0,0" />
+
+        <Label Content="PDFFileLocation" 
+            HorizontalAlignment="Left" VerticalAlignment="Top"
+            Height="30" Width="96"
+            Margin="10,313,0,0" />
+
         <Label Content="YouTubeURL" 
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="25" Width="96"
-               Margin="10,280,0,0" />
-        
+               Margin="10,340,0,0" RenderTransformOrigin="0.5,0.101" />
+
 
         <TextBox x:Name="TB_podcatsKey" 
                  HorizontalAlignment="Left" VerticalAlignment="Top"
                  Height="25" Width="179"
                  Margin="111,10,0,0" 
-                 Text="TextBlock" TextWrapping="Wrap" />
-        
+                 Text="" TextWrapping="Wrap" />
+
         <TextBox x:Name="TB_seasonKey" 
                  HorizontalAlignment="Left" VerticalAlignment="Top"
                  Height="25" Width="179"
                  Margin="111,40,0,0" 
-                 Text="TextBlock" TextWrapping="Wrap" />
-        
+                 Text="" TextWrapping="Wrap" />
+
         <TextBox x:Name="TB_title" 
                  HorizontalAlignment="Left" VerticalAlignment="Top"
                  Height="25" Width="179"
                  Margin="111,70,0,0" 
-                 Text="TextBlock" TextWrapping="Wrap" />
-        
+                 Text="" TextWrapping="Wrap" />
+
         <TextBox x:Name="TB_subtitle" 
                  HorizontalAlignment="Left" VerticalAlignment="Top"
                  Height="25" Width="179"
                  Margin="111,100,0,0" 
-                 Text="TextBlock" TextWrapping="Wrap" />
-        
-        <TextBox x:Name="TB_date" 
-                 HorizontalAlignment="Left" VerticalAlignment="Top"
-                 Height="25"  Width="179"
-                 Margin="111,130,0,0" 
-                 Text="TextBlock" TextWrapping="Wrap" />
+                 Text="" TextWrapping="Wrap" />
+
+        <TextBox x:Name="TB_Time" 
+            HorizontalAlignment="Left" VerticalAlignment="Top"
+            Height="25" Width="179"
+            Margin="111,160,0,0" 
+            Text="" TextWrapping="Wrap" />
         
         <TextBox x:Name="TB_author" 
                  HorizontalAlignment="Left" VerticalAlignment="Top"
                  Height="25" Width="179"
-                 Margin="111,160,0,0" 
-                 Text="TextBlock" TextWrapping="Wrap" />
-        
+                 Margin="111,190,0,0" 
+                 Text="" TextWrapping="Wrap" />
+
         <TextBox x:Name="TB_description" 
                  HorizontalAlignment="Left" VerticalAlignment="Top"
                  Height="25" Width="179"
-                 Margin="111,190,0,0" 
-                 Text="TextBlock" TextWrapping="Wrap" />
-        
-        <TextBox x:Name="TB_mp3FileName" 
-                 HorizontalAlignment="Left" VerticalAlignment="Top"
-                 Height="25" Width="179"
                  Margin="111,220,0,0" 
-                 Text="TextBlock" TextWrapping="Wrap" />
-        
-        <TextBox x:Name="TB_imageFileName" 
+                 Text="" TextWrapping="Wrap" />
+
+        <TextBox x:Name="TB_mp3FileLocation" 
                  HorizontalAlignment="Left" VerticalAlignment="Top"
                  Height="25" Width="179"
                  Margin="111,250,0,0" 
-                 Text="TextBlock" TextWrapping="Wrap" />
-        
-        <TextBox x:Name="TB_youTubeURL" 
+                 Text="" TextWrapping="Wrap" />
+
+        <TextBox x:Name="TB_imageFileLocation" 
                  HorizontalAlignment="Left" VerticalAlignment="Top"
                  Height="25" Width="179"
                  Margin="111,280,0,0" 
-                 Text="TextBlock" TextWrapping="Wrap" />
-        
+                 Text="" TextWrapping="Wrap" />
+
+        <TextBox x:Name="TB_pdfFileLocation" 
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Height="25" Width="179"
+                Margin="111,310,0,0" 
+                Text="" TextWrapping="Wrap" />
+
+        <TextBox x:Name="TB_youTubeURL" 
+                 HorizontalAlignment="Left" VerticalAlignment="Top"
+                 Height="25" Width="179"
+                 Margin="111,340,0,0" 
+                 Text="" TextWrapping="Wrap" />
+
 
         <Button x:Name="Btn_start" 
                 Content="Start Process" 
                 HorizontalAlignment="Center" VerticalAlignment="Top"
                 Height="32" Width="116"
-                Margin="0,330,0,0" Click="Btn_start_Click" />
+                Margin="0,392,0,0" Click="Btn_start_Click" />
+
+        <Button x:Name="Btn_ImageFile"
+                Content="..." 
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Height="25" Width="25"
+                Margin="295,280,0,0" />
+
+        <Button x:Name="Btn_Mp3File"
+                Content="..." 
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Height="25" Width="25"
+                Margin="295,250,0,0" Click="Btn_Mp3File_Click" />
+
+        <Button x:Name="Btn_ImageFile_Copy"
+                Content="..." 
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Height="25" Width="25"
+                Margin="295,310,0,0" />
+
+        <DatePicker x:Name="DateTimePicker"
+                    HorizontalAlignment="Left" VerticalAlignment="Top"
+                    Height="25" Width="179"
+                    Margin="111,130,0,0" />
+
+
 
     </Grid>
 </Window>
