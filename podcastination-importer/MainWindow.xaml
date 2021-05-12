@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:podcastination_importer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="470" Width="340">
+        Title="MainWindow" Height="480" Width="370">
     <Grid>
         <Label Content="PodcastKey" 
                HorizontalAlignment="Left" VerticalAlignment="Top" 
@@ -36,7 +36,7 @@
             HorizontalAlignment="Left" VerticalAlignment="Top"
             Height="25" Width="96"
             Margin="10,160,0,0" />
-        
+
         <Label Content="Author" 
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="25" Width="96"
@@ -92,12 +92,17 @@
                  Margin="111,100,0,0" 
                  Text="" TextWrapping="Wrap" />
 
+        <DatePicker x:Name="DateTimePicker"
+                    HorizontalAlignment="Left" VerticalAlignment="Top"
+                    Height="25" Width="179"
+                    Margin="111,130,0,0" />
+        
         <TextBox x:Name="TB_Time" 
             HorizontalAlignment="Left" VerticalAlignment="Top"
             Height="25" Width="179"
             Margin="111,160,0,0" 
             Text="" TextWrapping="Wrap" />
-        
+
         <TextBox x:Name="TB_author" 
                  HorizontalAlignment="Left" VerticalAlignment="Top"
                  Height="25" Width="179"
@@ -135,12 +140,6 @@
                  Text="" TextWrapping="Wrap" />
 
 
-        <Button x:Name="Btn_start" 
-                Content="Start Process" 
-                HorizontalAlignment="Center" VerticalAlignment="Top"
-                Height="32" Width="116"
-                Margin="0,392,0,0" Click="Btn_start_Click" />
-
         <Button x:Name="Btn_ImageFile"
                 Content="..." 
                 HorizontalAlignment="Left" VerticalAlignment="Top"
@@ -159,9 +158,23 @@
                 Height="25" Width="25"
                 Margin="295,310,0,0" Click="Btn_PdfFile_Click" />
 
-        <DatePicker x:Name="DateTimePicker"
-                    HorizontalAlignment="Left" VerticalAlignment="Top"
-                    Height="25" Width="179"
-                    Margin="111,130,0,0" />
+
+        <Button x:Name="Btn_start" 
+                Content="Start Process" 
+                HorizontalAlignment="Center" VerticalAlignment="Top"
+                Height="32" Width="116"
+                Margin="0,392,0,0" Click="Btn_start_Click" />
+        
+        <Button x:Name="Btn_saveAsPreset"
+                Content="Save as preset" 
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Height="32" Width="97"
+                Margin="25,392,0,0" />
+
+        <Button x:Name="Btn_openPreset"
+                Content="Open preset" 
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Height="32" Width="97"
+                Margin="248,392,0,0" />
     </Grid>
 </Window>
