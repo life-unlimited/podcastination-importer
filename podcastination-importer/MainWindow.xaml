@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:podcastination_importer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="480" Width="370">
+        Title="MainWindow" Height="480" Width="360">
     <Grid>
+
         <Label Content="PodcastKey" 
                HorizontalAlignment="Left" VerticalAlignment="Top" 
                Height="25" Width="96"
@@ -96,7 +97,7 @@
                     HorizontalAlignment="Left" VerticalAlignment="Top"
                     Height="25" Width="179"
                     Margin="111,130,0,0" />
-        
+
         <TextBox x:Name="TB_Time" 
             HorizontalAlignment="Left" VerticalAlignment="Top"
             Height="25" Width="179"
@@ -161,20 +162,20 @@
 
         <Button x:Name="Btn_start" 
                 Content="Start Process" 
-                HorizontalAlignment="Center" VerticalAlignment="Top"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
                 Height="32" Width="116"
-                Margin="0,392,0,0" Click="Btn_start_Click" />
-        
+                Margin="112,392,0,0" Click="Btn_start_Click" />
+
         <Button x:Name="Btn_saveAsPreset"
                 Content="Save as preset" 
                 HorizontalAlignment="Left" VerticalAlignment="Top"
                 Height="32" Width="97"
-                Margin="25,392,0,0" />
+                Margin="10,392,0,0" />
 
         <Button x:Name="Btn_openPreset"
                 Content="Open preset" 
                 HorizontalAlignment="Left" VerticalAlignment="Top"
                 Height="32" Width="97"
-                Margin="248,392,0,0" />
+                Margin="233,392,0,0" />
     </Grid>
 </Window>
