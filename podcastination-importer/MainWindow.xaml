@@ -170,12 +170,12 @@
                 Content="Save as preset" 
                 HorizontalAlignment="Left" VerticalAlignment="Top"
                 Height="32" Width="97"
-                Margin="10,392,0,0" />
+                Margin="10,392,0,0" Click="Btn_saveAsPreset_Click" />
 
         <Button x:Name="Btn_openPreset"
                 Content="Open preset" 
                 HorizontalAlignment="Left" VerticalAlignment="Top"
                 Height="32" Width="97"
-                Margin="233,392,0,0" />
+                Margin="233,392,0,0" Click="Btn_openPreset_Click" />
     </Grid>
 </Window>

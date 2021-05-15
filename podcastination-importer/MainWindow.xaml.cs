@@ -168,5 +168,52 @@ namespace podcastination_importer
             File.Move(pdfFile, di.FullName + @"\pdfPredipt.pdf");
             File.Move(jsonPath, di.FullName + @"\task.json");
         }
+
+        private void Btn_saveAsPreset_Click(object sender, RoutedEventArgs e)
+        {
+            string jsonPath = "../preset.json";
+            // Create Object
+            ImportTaskDetails importTaskDetails = new ImportTaskDetails()
+            {
+                podcast_key = TB_podcatsKey.Text,
+                season_key = TB_seasonKey.Text,
+                title = TB_title.Text,
+                subtitle = TB_subtitle.Text,
+                time = TB_Time.Text,
+                author = TB_author.Text,
+                description = TB_description.Text,
+                mp3_file_location = TB_mp3FileLocation.Text,
+                image_file_location = TB_imageFileLocation.Text,
+                pdf_file_location = TB_pdfFileLocation.Text,
+                youtube_url = TB_youTubeURL.Text
+            };
+
+            createJsonFile(importTaskDetails, jsonPath);
+        }
+
+        private void Btn_openPreset_Click(object sender, RoutedEventArgs e)
+        {
+            using (StreamReader file = File.OpenText("../preset.json"))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                ImportTaskDetails importTaskDetails = (ImportTaskDetails)serializer.Deserialize(file, typeof(ImportTaskDetails));
+
+                setPresetText(importTaskDetails);
+            }
+        }
+
+        public void setPresetText(ImportTaskDetails importTaskDetails)
+        {
+            TB_podcatsKey.Text = importTaskDetails.podcast_key;
+            TB_seasonKey.Text = importTaskDetails.season_key;
+            TB_title.Text = importTaskDetails.title;
+            TB_Time.Text = importTaskDetails.time;
+            TB_author.Text = importTaskDetails.author;
+            TB_description.Text = importTaskDetails.description;
+            TB_mp3FileLocation.Text = importTaskDetails.mp3_file_location;
+            TB_imageFileLocation.Text = importTaskDetails.image_file_location;
+            TB_pdfFileLocation.Text = importTaskDetails.pdf_file_location;
+            TB_youTubeURL.Text = importTaskDetails.youtube_url;
+        }
     }
 }
