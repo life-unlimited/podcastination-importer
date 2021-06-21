@@ -161,12 +161,26 @@ namespace podcastination_importer
 
         public void moveFiles(string mp3File, string imageFile, string pdfFile, string jsonPath)
         {
-            // all paths are NOT final!
-            DirectoryInfo di = Directory.CreateDirectory(@"L:\temp\testDir");
-            File.Move(mp3File, di.FullName + @"\predigt.mp3");
-            File.Move(imageFile, di.FullName + @"\thumb.png");
-            File.Move(pdfFile, di.FullName + @"\pdfPredipt.pdf");
-            File.Move(jsonPath, di.FullName + @"\task.json");
+            DateTime thisDay = DateTime.Today;
+            string thisDayConverted = thisDay.ToString("d");
+
+            try
+            {
+                // files will get stored in a dircetory in the same path as the program is installed 
+                // The directory has the current date as a name
+
+                DirectoryInfo di = Directory.CreateDirectory(@$".\{thisDayConverted}"); 
+
+                // empty source paths will crash the program but i don't care until i come up with a solution
+                File.Move(mp3File, di.FullName + @"\predigt.mp3");
+                File.Move(imageFile, di.FullName + @"\thumb.png");
+                File.Move(pdfFile, di.FullName + @"\pdfPredipt.pdf");
+                File.Move(jsonPath, di.FullName + ".. / task.json");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Something went wrong while moving the files!");
+            }
         }
 
         private void Btn_saveAsPreset_Click(object sender, RoutedEventArgs e)
