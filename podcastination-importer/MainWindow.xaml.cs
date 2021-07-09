@@ -46,9 +46,10 @@ namespace podcastination_importer
             public string pdf_file_location { get; set; }
             public string youtube_url { get; set; }
         }
-
+        
         private void Btn_start_Click(object sender, RoutedEventArgs e)
         {
+            
             string mp3Path = TB_mp3FileLocation.Text;
             string imagePath = TB_imageFileLocation.Text;
             string pdfPath = TB_pdfFileLocation.Text;
@@ -171,11 +172,20 @@ namespace podcastination_importer
 
                 DirectoryInfo di = Directory.CreateDirectory(@$".\{thisDayConverted}"); 
 
-                // empty source paths will crash the program but i don't care until i come up with a solution
                 File.Move(mp3File, di.FullName + @"\predigt.mp3");
-                File.Move(imageFile, di.FullName + @"\thumb.png");
+
+                if(imageFile != "")
+                {
+                    File.Move(imageFile, di.FullName + @"\thumb.png");
+                }
+
+                if(pdfFile != "")
+                {
                 File.Move(pdfFile, di.FullName + @"\pdfPredipt.pdf");
+                }
+
                 File.Move(jsonPath, di.FullName + ".. / task.json");
+
             }
             catch (Exception)
             {
@@ -228,6 +238,12 @@ namespace podcastination_importer
             TB_imageFileLocation.Text = importTaskDetails.image_file_location;
             TB_pdfFileLocation.Text = importTaskDetails.pdf_file_location;
             TB_youTubeURL.Text = importTaskDetails.youtube_url;
+        }
+
+        private void TB_mp3FileLocation_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+            Btn_start.IsEnabled = TB_mp3FileLocation.Text != "";
         }
     }
 }

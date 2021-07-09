@@ -120,7 +120,8 @@
                  HorizontalAlignment="Left" VerticalAlignment="Top"
                  Height="25" Width="179"
                  Margin="111,250,0,0" 
-                 Text="" TextWrapping="Wrap" />
+                 Text="" TextWrapping="Wrap" 
+                 TextChanged="TB_mp3FileLocation_TextChanged"/>
 
         <TextBox x:Name="TB_imageFileLocation" 
                  HorizontalAlignment="Left" VerticalAlignment="Top"
@@ -164,7 +165,8 @@
                 Content="Start Process" 
                 HorizontalAlignment="Left" VerticalAlignment="Top"
                 Height="32" Width="116"
-                Margin="112,392,0,0" Click="Btn_start_Click" />
+                Margin="112,392,0,0" Click="Btn_start_Click" 
+                IsEnabled="False" />
 
         <Button x:Name="Btn_saveAsPreset"
                 Content="Save as preset" 
