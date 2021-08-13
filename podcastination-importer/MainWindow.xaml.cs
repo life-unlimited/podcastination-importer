@@ -76,6 +76,7 @@ namespace podcastination_importer
 
             createJsonFile(importTaskDetails, jsonPath);
             moveFiles(mp3Path, imagePath, pdfPath, jsonPath);
+            MessageBox.Show("Success!");
         }
 
         public void createJsonFile(object jsonObject, string path)
@@ -107,8 +108,6 @@ namespace podcastination_importer
                 JsonSerializer serializer = JsonSerializer.Create(settings);
                 serializer.Serialize(file, jsonObject);
             }
-            MessageBox.Show("Process sucessfull!");
-
         }
 
         private void Btn_Mp3File_Click(object sender, RoutedEventArgs e)
@@ -128,9 +127,9 @@ namespace podcastination_importer
                 TB_mp3FileLocation.Text = fileSelected;
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong, while getting the file. Try agian");
+                MessageBox.Show($"Something went wrong: \n{ex}");
             }
         }
 
@@ -151,9 +150,9 @@ namespace podcastination_importer
                 TB_imageFileLocation.Text = fileSelected;
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong, while getting the file. Try agian");
+                MessageBox.Show($"Something went wrong: \n{ex}");
             }
         }
 
@@ -174,9 +173,9 @@ namespace podcastination_importer
                 TB_pdfFileLocation.Text = fileSelected;
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong, while getting the file. Try agian");
+                MessageBox.Show($"Something went wrong: \n{ex}");
             }
         }
 
@@ -204,12 +203,12 @@ namespace podcastination_importer
                     File.Move(pdfFile, di.FullName + @"\pdfPredipt.pdf");
                 }
 
-                File.Move(jsonPath, di.FullName + ".. / task.json");
+                File.Move(jsonPath, di.FullName + @"\task.json");
 
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                MessageBox.Show($"Something went wrong while moving the files: \n{e}");
+                MessageBox.Show($"Something went wrong while moving the files: \n{ex}");
             }
         }
 
@@ -281,7 +280,7 @@ namespace podcastination_importer
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Convert.ToString(ex));
+                MessageBox.Show($"Something went wrong: \n{ex}");
             }
         }
 
