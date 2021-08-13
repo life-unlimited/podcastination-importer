@@ -80,6 +80,24 @@ namespace podcastination_importer
 
         public void createJsonFile(object jsonObject, string path)
         {
+            if(path == "")
+            {
+                string directory = @"..\presets\";
+
+                // Path to directory before the instaltion directory
+                string combinedPath = System.IO.Path.Combine(Directory.GetCurrentDirectory(), directory);
+
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.InitialDirectory = System.IO.Path.GetFullPath(combinedPath);
+                saveFileDialog.Filter = "json files (*.json)|*.json";
+                saveFileDialog.FilterIndex = 1;
+                saveFileDialog.RestoreDirectory = true;
+
+                if (saveFileDialog.ShowDialog() == true)
+                {
+                   path = saveFileDialog.FileName;
+                }
+            }
 
             using (StreamWriter file = File.CreateText(path))
             {
@@ -197,18 +215,12 @@ namespace podcastination_importer
 
         private void Btn_saveAsPreset_Click(object sender, RoutedEventArgs e)
         {
-            string jsonPath;
-
-            string filepath = "../presets/";
-            if (!Directory.Exists(filepath))
+            string directory = @"..\presets\";
+            string path = "";
+            if (!Directory.Exists(directory))
             {
-                Directory.CreateDirectory(filepath);
+                Directory.CreateDirectory(directory);
             }
-            string argument = "/select, \"" + filepath + "\"";
-
-            System.Diagnostics.Process P = System.Diagnostics.Process.Start("explorer.exe", argument); //need to get the return value as usable string
-            P.WaitForExit();
-            jsonPath = Convert.ToString(P.ExitCode);
 
             // Create Object
             ImportTaskDetails importTaskDetails = new ImportTaskDetails()
@@ -226,44 +238,51 @@ namespace podcastination_importer
                 youtube_url = TB_youTubeURL.Text
             };
 
-            createJsonFile(importTaskDetails, jsonPath);
+            createJsonFile(importTaskDetails, path);
         }
 
         private void Btn_openPreset_Click(object sender, RoutedEventArgs e)
         {
             string filePath;
+            string directory = @"..\presets\";
 
-            string directory = "../presets/";
+            // Path to directory before the instaltion directory
+            string combinedPath = System.IO.Path.Combine(Directory.GetCurrentDirectory(), directory); 
+
             if (!Directory.Exists(directory))
             {
-                Directory.CreateDirectory(directory);
+                MessageBox.Show("Es gibt noch keine Presets!");
             }
 
+            // Start file dialog
             OpenFileDialog openFileDialog = new OpenFileDialog();
             try
             {
-                openFileDialog.InitialDirectory = directory;
+                openFileDialog.InitialDirectory = System.IO.Path.GetFullPath(combinedPath);
                 openFileDialog.Filter = "json files (*.json)|*.json";
                 openFileDialog.FilterIndex = 1;
                 openFileDialog.RestoreDirectory = true;
-
-                //Get the path of specified file
-                filePath = openFileDialog.FileName;
-
-                using (StreamReader file = File.OpenText(filePath))
+                
+                if (openFileDialog.ShowDialog() == true)
                 {
-                    JsonSerializer serializer = new JsonSerializer();
-                    ImportTaskDetails importTaskDetails = (ImportTaskDetails)serializer.Deserialize(file, typeof(ImportTaskDetails));
 
-                    setPresetText(importTaskDetails);
+                    //Get the path of specified file
+                    filePath = openFileDialog.FileName;
+
+                    using (StreamReader file = File.OpenText(filePath))
+                    {
+                        JsonSerializer serializer = new JsonSerializer();
+                        ImportTaskDetails importTaskDetails = (ImportTaskDetails)serializer.Deserialize(file, typeof(ImportTaskDetails));
+
+                        setPresetText(importTaskDetails);
+                    }
                 }
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(Convert.ToString(ex));
             }
-
-
         }
 
         public void setPresetText(ImportTaskDetails importTaskDetails)
