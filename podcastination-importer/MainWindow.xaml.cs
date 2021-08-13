@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.ComponentModel;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using System.IO;
@@ -46,10 +47,10 @@ namespace podcastination_importer
             public string pdf_file_location { get; set; }
             public string youtube_url { get; set; }
         }
-        
+
         private void Btn_start_Click(object sender, RoutedEventArgs e)
         {
-            
+
             string mp3Path = TB_mp3FileLocation.Text;
             string imagePath = TB_imageFileLocation.Text;
             string pdfPath = TB_pdfFileLocation.Text;
@@ -89,6 +90,7 @@ namespace podcastination_importer
                 serializer.Serialize(file, jsonObject);
             }
             MessageBox.Show("Process sucessfull!");
+
         }
 
         private void Btn_Mp3File_Click(object sender, RoutedEventArgs e)
@@ -170,32 +172,44 @@ namespace podcastination_importer
                 // files will get stored in a dircetory in the same path as the program is installed 
                 // The directory has the current date as a name
 
-                DirectoryInfo di = Directory.CreateDirectory(@$".\{thisDayConverted}"); 
+                DirectoryInfo di = Directory.CreateDirectory(@$".\{thisDayConverted}");
 
                 File.Move(mp3File, di.FullName + @"\predigt.mp3");
 
-                if(imageFile != "")
+                if (imageFile != "")
                 {
                     File.Move(imageFile, di.FullName + @"\thumb.png");
                 }
 
-                if(pdfFile != "")
+                if (pdfFile != "")
                 {
-                File.Move(pdfFile, di.FullName + @"\pdfPredipt.pdf");
+                    File.Move(pdfFile, di.FullName + @"\pdfPredipt.pdf");
                 }
 
                 File.Move(jsonPath, di.FullName + ".. / task.json");
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                MessageBox.Show("Something went wrong while moving the files!");
+                MessageBox.Show($"Something went wrong while moving the files: \n{e}");
             }
         }
 
         private void Btn_saveAsPreset_Click(object sender, RoutedEventArgs e)
         {
-            string jsonPath = "../preset.json";
+            string jsonPath;
+
+            string filepath = "../presets/";
+            if (!Directory.Exists(filepath))
+            {
+                Directory.CreateDirectory(filepath);
+            }
+            string argument = "/select, \"" + filepath + "\"";
+
+            System.Diagnostics.Process P = System.Diagnostics.Process.Start("explorer.exe", argument); //need to get the return value as usable string
+            P.WaitForExit();
+            jsonPath = Convert.ToString(P.ExitCode);
+
             // Create Object
             ImportTaskDetails importTaskDetails = new ImportTaskDetails()
             {
@@ -217,13 +231,39 @@ namespace podcastination_importer
 
         private void Btn_openPreset_Click(object sender, RoutedEventArgs e)
         {
-            using (StreamReader file = File.OpenText("../preset.json"))
-            {
-                JsonSerializer serializer = new JsonSerializer();
-                ImportTaskDetails importTaskDetails = (ImportTaskDetails)serializer.Deserialize(file, typeof(ImportTaskDetails));
+            string filePath;
 
-                setPresetText(importTaskDetails);
+            string directory = "../presets/";
+            if (!Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
             }
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            try
+            {
+                openFileDialog.InitialDirectory = directory;
+                openFileDialog.Filter = "json files (*.json)|*.json";
+                openFileDialog.FilterIndex = 1;
+                openFileDialog.RestoreDirectory = true;
+
+                //Get the path of specified file
+                filePath = openFileDialog.FileName;
+
+                using (StreamReader file = File.OpenText(filePath))
+                {
+                    JsonSerializer serializer = new JsonSerializer();
+                    ImportTaskDetails importTaskDetails = (ImportTaskDetails)serializer.Deserialize(file, typeof(ImportTaskDetails));
+
+                    setPresetText(importTaskDetails);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex));
+            }
+
+
         }
 
         public void setPresetText(ImportTaskDetails importTaskDetails)
