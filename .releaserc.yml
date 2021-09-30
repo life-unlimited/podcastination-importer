@@ -6,3 +6,5 @@ plugins:
   - "@semantic-release/github"
 branches:
   - "master"
+assets:
+  - podcastination-importer.zip

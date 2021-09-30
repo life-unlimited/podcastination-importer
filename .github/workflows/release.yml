@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build:
+  release:
     runs-on: windows-latest
     env:
       ACTIONS_ALLOW_UNSECURE_COMMANDS: true
@@ -33,23 +33,29 @@ jobs:
         run: |
           msbuild.exe podcastination-importer.sln /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
 
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v1.0.0
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v2.2.4
         with:
-          name: podcastination-importer
+          name: podcastination-importer.zip
           path: podcastination-importer\bin\Release\netcoreapp3.1
 
-  release:
-    needs:
-      - build
-    name: release
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Zip Build Artifact for Release
+        uses: papeloto/action-zip@v1
         with:
-          cache: npm
-      - run: npm install @semantic-release/changelog @semantic-release/git @semantic-release/github
-      - run: npx semantic-release
+          files: podcastination-importer\bin\Release\netcoreapp3.1
+          dest: podcastination-importer.zip
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+
+      - name: Add plugins for semantic release
+        run: npm install semantic-release conventional-changelog-conventionalcommits @semantic-release/changelog @semantic-release/git
+
+      - name: Release to GitHub
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GIT_AUTHOR_NAME: semantic-release
+          GIT_COMMITTER_NAME: semantic-release
+        run: npx semantic-release
