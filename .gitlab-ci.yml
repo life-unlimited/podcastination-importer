@@ -1,0 +1,15 @@
+stages:
+  - release
+
+release:
+  stage: release
+  image: node:13
+  allow_failure: false
+  before_script:
+    - npm install @semantic-release/changelog @semantic-release/git @semantic-release/gitlab
+  script:
+    - npx semantic-release
+  tags:
+    - docker
+  only:
+    - master
