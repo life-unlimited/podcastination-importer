@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "podcastination-importer", "podcastination-importer\podcastination-importer.csproj", "{F6B86378-A883-4EFE-ACFF-507BA1283488}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "podcastination-importer", "podcastination-importer\podcastination-importer.csproj", "{F6B86378-A883-4EFE-ACFF-507BA1283488}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,5 +21,14 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {60490E09-474A-4C46-B114-D78EE7E40865}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://medbibsvtfs01:8080/tfs/kavo_software_projects
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = podcastination-importer\\podcastination-importer.csproj
+		SccProjectName1 = podcastination-importer
+		SccLocalPath1 = podcastination-importer
 	EndGlobalSection
 EndGlobal

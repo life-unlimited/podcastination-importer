@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:podcastination_importer"
         mc:Ignorable="d"
-        Title="Podcastination Importer" Height="487" Width="481"
+        Title="Podcastination Importer" Height="530" Width="481"
         Background="#121212" Foreground="White">
+
     <Grid Width="475">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1.5*"/>
@@ -14,6 +15,9 @@
             <ColumnDefinition Width="1.5*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -87,7 +91,7 @@
                HorizontalAlignment="Left" VerticalAlignment="Center"
                Height="25" Width="96"
                Margin="10,0,0,0" 
-               Grid.Row="9" Grid.ColumnSpan="2" />
+               Grid.Row="9" Grid.ColumnSpan="2" Padding="5,-6,5,5" />
 
         <Label Content="PDF File" 
             HorizontalAlignment="Left" VerticalAlignment="Center"
@@ -98,82 +102,100 @@
         <Label Content="YouTube URL" 
                HorizontalAlignment="Left" VerticalAlignment="Center"
                Height="25" Width="96"
-               Margin="10,0,0,0" RenderTransformOrigin="0.5,0.101" 
+               Margin="10,0,0,0"
                Grid.Row="11" Grid.ColumnSpan="2" />
 
 
-        <TextBox x:Name="TB_podcatsKey" 
+        <TextBox x:Name="TB_podcastKey" 
                  HorizontalAlignment="Center" VerticalAlignment="Center"
                  Height="25" Width="178" 
                  Text="" TextWrapping="Wrap" 
-                 Grid.Column="1" />
+                 Grid.Column="1" 
+                 TextChanged="refreshFormStates"/>
 
         <TextBox x:Name="TB_seasonKey" 
                  HorizontalAlignment="Center" VerticalAlignment="Center"
                  Height="25" Width="178" 
                  Text="" TextWrapping="Wrap" 
-                 Grid.Column="1" Grid.Row="1" />
+                 Grid.Column="1" Grid.Row="1" 
+                 TextChanged="refreshFormStates"/>
 
         <TextBox x:Name="TB_title" 
                  HorizontalAlignment="Center" VerticalAlignment="Center"
                  Height="25" Width="178" 
                  Text="" TextWrapping="Wrap" 
-                 Grid.Column="1" Grid.Row="2" />
+                 Grid.Column="1" Grid.Row="2" 
+                 TextChanged="refreshFormStates"/>
 
         <TextBox x:Name="TB_subtitle" 
                  HorizontalAlignment="Center" VerticalAlignment="Center"
                  Height="25" Width="178" 
                  Text="" TextWrapping="Wrap" 
-                 Grid.Column="1" Grid.Row="3" />
+                 Grid.Column="1" Grid.Row="3" 
+                 TextChanged="refreshFormStates" /> 
 
         <DatePicker x:Name="DateTimePicker"
                     HorizontalAlignment="Center" VerticalAlignment="Center"
                     Height="25" Width="178" BorderBrush="{x:Null}" 
+                    SelectedDateChanged="refreshFormStates"
                     Grid.Column="1" Grid.Row="4" />
 
         <TextBox x:Name="TB_Time" 
                  HorizontalAlignment="Center" VerticalAlignment="Center"
                  Height="25" Width="178" 
                  Text="" TextWrapping="Wrap" 
-                 Grid.Column="1" Grid.Row="5" />
+                 Grid.Column="1" Grid.Row="5" 
+                 TextChanged="refreshFormStates"/>
 
         <TextBox x:Name="TB_author" 
                  HorizontalAlignment="Center" VerticalAlignment="Center"
                  Height="25" Width="178" 
                  Text="" TextWrapping="Wrap" 
-                 Grid.Column="1" Grid.Row="6" />
+                 Grid.Column="1" Grid.Row="6" 
+                 TextChanged="refreshFormStates"/>
 
         <TextBox x:Name="TB_description" 
                  HorizontalAlignment="Center" VerticalAlignment="Center"
                  Height="25" Width="178" 
                  Text="" TextWrapping="Wrap" 
-                 Grid.Column="1" Grid.Row="7" />
+                 Grid.Column="1" Grid.Row="7" 
+                 TextChanged="refreshFormStates"/>
 
         <TextBox x:Name="TB_mp3FileLocation" 
                  HorizontalAlignment="Center" VerticalAlignment="Center"
                  Height="25" Width="178" 
                  Text="" TextWrapping="Wrap" 
-                 TextChanged="TB_mp3FileLocation_TextChanged" 
+                 TextChanged="refreshFormStates" 
                  Grid.Column="1" Grid.Row="8"/>
 
         <TextBox x:Name="TB_imageFileLocation" 
                  HorizontalAlignment="Center" VerticalAlignment="Center"
                  Height="25" Width="178" 
                  Text="" TextWrapping="Wrap" 
-                 Grid.Column="1" Grid.Row="9" />
+                 Grid.Column="1" Grid.Row="9" 
+                 TextChanged="refreshFormStates"/>
 
         <TextBox x:Name="TB_pdfFileLocation" 
                 HorizontalAlignment="Center" VerticalAlignment="Center"
                 Height="25" Width="178" 
                 Text="" TextWrapping="Wrap"
-                 Grid.Column="1" Grid.Row="10" />
+                 Grid.Column="1" Grid.Row="10" 
+                 TextChanged="refreshFormStates"/>
 
         <TextBox x:Name="TB_youTubeURL" 
                  HorizontalAlignment="Center" VerticalAlignment="Center"
                  Height="25" Width="178" 
                  Text="" TextWrapping="Wrap" 
-                 Grid.Column="1" Grid.Row="11" />
+                 Grid.Column="1" Grid.Row="11" 
+                 TextChanged="refreshFormStates"/>
 
+        <TextBox x:Name="TB_validStates"
+                 HorizontalAlignment="Left" VerticalAlignment="Top"
+                 Height="75" Width="449"
+                 Text="" TextWrapping="Wrap" IsReadOnly="True"
+                 Grid.Row="12" Grid.ColumnSpan="3" Grid.RowSpan="3" 
+                 Margin="10,6,0,0" 
+                 Background="#FF121212" BorderBrush="{x:Null}" Foreground="Red"/>
 
         <Button x:Name="Btn_Mp3File"
                 Content="..." 
@@ -207,7 +229,7 @@
                 Height="30" Width="100"
                 Click="Btn_openPreset_Click" 
                 BorderBrush="{x:Null}" Margin="22,5,21,5" 
-                Grid.Row="12" />
+                Grid.Row="15" />
 
         <Button x:Name="Btn_start" 
                 Content="Start Process"
@@ -215,7 +237,7 @@
                 Click="Btn_start_Click" 
                 IsEnabled="False" BorderBrush="{x:Null}" 
                 Margin="46,5,38,5"
-                Grid.Column="1" Grid.Row="12"/>
+                Grid.Column="1" Grid.Row="15"/>
 
         <Button x:Name="Btn_saveAsPreset"
                 Content="Save as preset"
@@ -223,7 +245,8 @@
                 Margin="21,5,22,5"
                 Click="Btn_saveAsPreset_Click" 
                 BorderBrush="{x:Null}" 
-                Grid.Column="2" Grid.Row="12" />
+                Grid.Column="2" Grid.Row="15" />
+
 
     </Grid>
 </Window>
