@@ -1,4 +1,4 @@
-name: podcastination-importer Build
+name: Release
 
 on:
   push:
